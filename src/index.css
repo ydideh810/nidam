@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Tektur:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cyber-dark: #010101;
+  --cyber-primary: #740000;
+  --cyber-secondary: #825353;
+  --cyber-light: #D9D9D9;
+}
+
+body {
+  @apply bg-cyber-dark text-cyber-light font-tektur;
+}
+
+.cyber-gradient {
+  background: linear-gradient(135deg, var(--cyber-primary), var(--cyber-secondary));
+}
+
+.cyber-border {
+  border: 1px solid var(--cyber-primary);
+  box-shadow: 0 0 10px rgba(116, 0, 0, 0.3);
+}
+
+.shadow-cyber {
+  box-shadow: 0 4px 6px -1px rgba(116, 0, 0, 0.1), 0 2px 4px -1px rgba(116, 0, 0, 0.06);
+}
+
+.cyber-glitch {
+  text-shadow: 2px 2px var(--cyber-primary);
+  position: relative;
+}
+
+.cyber-glitch::before {
+  content: attr(data-text);
+  position: absolute;
+  left: -2px;
+  text-shadow: -1px 0 var(--cyber-secondary);
+  top: 0;
+  color: var(--cyber-light);
+  background: var(--cyber-dark);
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: noise-anim-2 3s infinite linear alternate-reverse;
+}
